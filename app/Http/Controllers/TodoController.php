@@ -57,7 +57,7 @@ class TodoController extends Controller
         // dd($this->todo->fill($input));
         $this->todo->fill($input)->save();//fillメソッドはfillableの値を参照する。
         // dd(redirect()->to('todo'));
-        return redirect()->to('todo.index');//←Controllerで特定のページへリダイレクトさせたいときに使用//引数なしの場合、redirectインスタンス
+        return redirect()->route('todo.index');//←Controllerで特定のページへリダイレクトさせたいときに使用//引数なしの場合、redirectインスタンス
     }
 
     /**
@@ -98,7 +98,7 @@ class TodoController extends Controller
     {
         $input = $request->all();
         $this->todo->find($id)->fill($input)->save();
-        return redirect()->to('todo.index');//←なぜGETでtodoにリダイレクトされるのか？aタグがGET methodだから。
+        return redirect()->route('todo.index');//←なぜGETでtodoにリダイレクトされるのか？aタグがGET methodだから。
     }
 
     /**
@@ -110,6 +110,6 @@ class TodoController extends Controller
     public function destroy($id)//destroy関数に引数で$IDが入り
     {
         $this->todo->find($id)->delete();
-        return redirect()->to('todo.index');
+        return redirect()->route('todo.index');
     }
 }
