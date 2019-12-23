@@ -1,7 +1,7 @@
 @extends ('layouts.app')<!-- resources/views -->
 @section ('content')<!-- contentファイルを読み込み表示 -->
 
-<h1 class="page-header">ToDo一覧</h1>
+<h1 class="page-header">{{ Auth::user()->name }}のToDo一覧</h1>
 <p class="text-right">
   <a class="btn btn-success" href="/todo/create">新規作成</a>
 </p>
