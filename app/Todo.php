@@ -3,10 +3,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Todo extends Model
 {
-    protected $fillable = ['title', 'user_id'];
+    use SoftDeletes;
+    protected $fillable =
+    ['title', 'user_id'];
+
+    protected $dates = ['delete_at'];
 
     public function getByUserId($id)
     {
